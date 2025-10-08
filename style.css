@@ -1605,11 +1605,11 @@ color: #907ac3;
 
 .main .icon::before{
     transition-duration: 0.5s;
-    transition-delay: 0.2s;
+    transition-delay: 0.4s;
 }
 .main .icon::after{
     transition-duration: 0.5s;
-    transition-delay: 0.2s;
+    transition-delay: 0.4s;
 }
 
 .main .icon:hover:before{
@@ -1625,14 +1625,14 @@ color: #907ac3;
     
     animation-name: popup;
     animation-duration: 1s;
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;
 }
 .main .icon:active::after{
     opacity: 1;
     
     animation-name: popup2;
     animation-duration: 1s;
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;
 }
     
 }
