@@ -10,28 +10,13 @@
 
 
 body{
-    background-color: #cdbbda;
-    background-color: #bfabcd;
-    background-color: #473661;
-    background-color: #5f4c7c;
-    background-color: #8f77ad;
-    background-color: #a994c2;
-    background-color: #b0a1c7;
-    background-color: #E7E7E7;
-    background-color: #C2BADE;
-    background-color: #CABADE;
-    background-color: #CDC5E0;
-    background-color: #ac9fce;
-    background-color: #ebe5e1;
-    background-color: #e3dddb;
-    background-color: #CDC5E0;
-    background-image: linear-gradient(-187deg, #c2b5de, #7F66BA);
-    background-color: none;
-    background-image:none;
     background-image: linear-gradient(-187deg, #c2b5de, #907AC3);
+    background-repeat: no-repeat;
     font-family: sans-serif;
     cursor: default;
     overflow: hidden;
+    height: 100vh;
+    width: 100%;
 }
 
 
