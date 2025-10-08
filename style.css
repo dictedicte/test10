@@ -82,6 +82,7 @@ header{
     align-items: center;
     background-color: #c2b5de;
     box-shadow: 0 0px 20px -6px #907AC3;
+    background-color: #e8e3f327;
 }
 /*
 header{
@@ -104,7 +105,9 @@ header{
 }
 */
 header:hover{
-    background-color: #E8E3F380;
+    background-color: #cfc2ea;
+    
+    background-color: #e8e3f349;
 }
 header h1{
     color: white;
@@ -159,7 +162,7 @@ header #menu{
         z-index: 999;
         transition-duration: 0.3s;
         max-width: 80%;
-        box-shadow: 2px 0 12px #6a58816d, 12px 0 40px #6a58815f;
+        /*box-shadow: 2px 0 12px #6a58816d, 12px 0 40px #6a58815f;*/
     }
     header #menu:hover #menuframe,#menu #menuframe:hover{
         visibility: visible;
@@ -181,16 +184,16 @@ header #jump{
 }
     header #jump .jump{
         width: fit-content;
-        height: fit-content;
+        height: 400px;
         max-height: 60vh;
         background-color: #f4ecfc;
         position: absolute;
         right: 0px;
-        top: 56px;
+        top: 40px;
         z-index: 999;
         visibility: hidden;
         opacity: 0;
-        scale: 0.5;
+        /*scale: 0.5;*/
         transform-origin: top right;
         display: flex;
         flex-direction: column;
@@ -206,7 +209,6 @@ header #jump{
     header #jump:hover .jump{
         visibility: visible;
         opacity: 1;
-        scale: 1;
     }
     header #jump .jump::-webkit-scrollbar {
         display: none;
@@ -486,6 +488,9 @@ header #settings{
             align-items: center;
             margin: 0;
         }
+        .month:first-child{
+            padding-top: 20px;
+        }
 
         .day{
             padding: 0;
@@ -534,7 +539,7 @@ header #settings{
             padding: 0 6px;
             border-radius: 6px;
             top: 26px;
-            top: 10px;
+            top: 14px;
             position: sticky;
             height: 16px;
             font-size: 10px;
@@ -549,7 +554,7 @@ header #settings{
 
             text-align: center;
             margin-right: auto;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             transform: translateY(-0px);
             margin-left: 6px;
             color: #e8e3f3;
@@ -587,7 +592,7 @@ header #settings{
             font-style: normal;
             height: 0px;
             top: 26px;
-            top:10px;
+            top:14px;
             width: 20px;
             padding: 0;
             border-radius: 0;
@@ -609,6 +614,7 @@ header #settings{
             padding: 0 3px;
             margin-right: auto;
             margin-bottom: 10px;
+            margin-bottom: 6px;
             margin-left: 6px;
             
             color: #e8e3f3;
@@ -618,7 +624,7 @@ header #settings{
 
         .day b i{
             position: absolute;
-            transform: translateY(-26px);
+            transform: translateY(-22px);
             top: 0px;
             background-color: #a28eb7;
             background-color: #8e79af;
@@ -640,7 +646,6 @@ header #settings{
 
         .weekday{
             position: absolute;
-            background-color: red;
             width: 80px;
             top: 0;
             left: 17px;
@@ -699,6 +704,7 @@ header #settings{
     background-color: #F7F6FB;
     background-color: #d1c8e670;
     background-color: #E8E3F380;
+    backdrop-filter: brightness(1.2);
     margin-top: 9px;
     margin-top: 12px;
     color: #6b588e;
@@ -711,7 +717,6 @@ header #settings{
     color: #9386B3;
         /*background-image: linear-gradient(-187deg, #c2b5de, #7f66ba);*/
 
-    backdrop-filter: brightness(1.2);
 
 
     box-shadow: 1.5px 3px 6px -3px #907ac380;
@@ -726,18 +731,18 @@ header #settings{
     margin-top: 0px;
 }
 .entry:last-child{
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 .entry:hover{
     box-shadow: 0 0 12px -3px white;
     box-shadow:0 0 12px -3px white, 2px 2px 6px 0 #a98eca7d;
     background-color: #f6f0fd;
     background-color: #f4ecfc;
-        background-color: #ffffffc2;
-        background-color: #f9f5ffc3;
-        background-image: none;
-        background-color: #ffffffd7;
-        background-color: #ffffffb2;
+    background-color: #ffffffc2;
+    background-color: #f9f5ffc3;
+    background-image: none;
+    background-color: #ffffffd7;
+    background-color: #ffffffb2;
     backdrop-filter: brightness(1.4);
     background-color: #f7f6fb9a;
     text-shadow: rgba(255, 255, 255, 0.678) 0 0 4px;
@@ -1594,6 +1599,55 @@ header #settings{
         width: 0px;
         height: 0px;
     }
+
+    
+.main .icon::before{
+    position: absolute;
+    background-color: #E8E3F380;
+    background-color: white;
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 4px;
+    transform: translateY(-20px);
+    z-index: 999;
+    padding: 2px 4px;
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+    width: fit-content;
+    text-wrap: nowrap;
+    
+}
+.main .icon::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid white;
+    opacity: 0;
+    transition-duration: 0.4s;
+    transition-delay: 0s;
+    transform: translateY(-12px);
+
+}
+.main .icon:active:before{
+    opacity: 1;
+    
+    animation-name: popup;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+.main .icon:active::after{
+    opacity: 1;
+    
+    animation-name: popup2;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
     
 }
 
