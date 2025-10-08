@@ -1634,6 +1634,14 @@ header #settings{
     transform: translateY(-12px);
 
 }
+.main .icon:hover:before{
+    animation: none;
+    opacity: 0;
+}
+.main .icon:hover:after{
+    animation: none;
+    opacity: 0;
+}
 .main .icon:active:before{
     opacity: 1;
     
