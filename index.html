@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Timeline</title>
+    <link rel="icon" type="image/png" href="images/icons/anniversary.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+        }
+        .s1{
+            /* background-image: url(images/slideshow/EnaFYL-XYAIyxJ5.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            height: calc(100vh - 70px);
+            width: 100%;
+            position: relative;
+        }
+
+        #arrow{
+            position: absolute;
+            z-index: 10;
+            width: 50px;
+            left: 50px;
+        }
+
+        #birthdayhat{
+            z-index: 30;
+            width: 70px;
+            position: absolute;
+            top: 450px;
+            right: 100px;
+        }
+        .s1 #image{
+            position: absolute;
+            width: auto;
+            height: 100%;
+        }
+
+        .s2{
+            flex-shrink: 0;
+            height: 100px;
+        }
+
+        h2{
+            color: #8d70a6;
+            font-size: 70px;
+            font-family: serif;
+            text-align: center;
+            background-color: #a98dc182;
+            backdrop-filter: blur(10px);
+
+            text-shadow: -1px -1px 1px #ffffff44, 1px 1px 1px #503368db;
+            box-shadow: inset 1px 1px 4px #ffffff6d, inset  -1px -1px 4px #73538edb;
+text-transform: uppercase;
+            border-radius: 30px;
+            padding: 15px;
+            margin-top: 15px;
+            max-width: 90%;
+            z-index: 10;
+        }
+        small{
+            color: #8d70a6;
+            font-size: 25px;
+            font-family: serif;
+            display: block;
+            text-transform: capitalize;
+
+        }
+        i{
+            background-color: #c58e7f;
+            color: #ddbe4f;
+            padding: 12px;
+            border-radius: 24px;
+            width: fit-content;
+
+        }
+/* 
+        #jhope{
+            display: block;
+        } */
+        area{
+            cursor: pointer;
+        }
+        .profile{
+            display: none;
+            z-index: 100;
+            background-color: #ded6e6;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top: 700px;
+            width: 400px;
+            height: fit-content;
+            border-radius: 20px;
+            animation-name: profile;
+            animation-duration: 0.2s;
+        }
+        @keyframes profile {
+            0%{
+                scale: 0.7;
+            }
+
+            100%{
+                scale:1;
+            }
+        }
+        .profile h4{
+            width: 100%;
+            text-align: center;
+            color: #8d70a6;
+            font-size: 35px;
+            height: 50px;
+            align-content: center;
+        }
+        .profile table{
+            padding: 6px;
+            width: 100%;
+            height: fit-content;
+        }
+        .profile tr{
+            margin: 6px;
+            height: 35px;
+        }
+        .profile th{
+            color: #ffffff70;
+            text-align: end;
+            font-size: 12px;
+            padding-left: 12px;
+            background-color: #8d70a6;
+            border-radius: 5px;
+            width: 35%;
+        }.profile th::after{
+            content: ":";
+            padding-right: 5px;
+        }
+        .profile td{
+            background-color: #ffffff70;
+            font-size: 16px;
+            color: #8d70a6;
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+
+        #jhover:hover #jhope{
+            display: block;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header><h1></h1>
+            <div id="menu">
+                <div id="menuframe">
+                    <iframe src="menu.html">
+
+                    </iframe>
+                </div>
+            </div>
+
+
+    </header>
+<div class="container">
+    <img id="arrow" src="images/switch_access_shortcut_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+
+    <section class="s1">
+
+        <h2>BTS TIMELINE<small>A chronological timeline of BTS Releases, events and social media activity</small>
+        </h2>
+
+        <img id="birthdayhat" src="images/slideshow/birthdayhat.png">
+        <img id="image" src="images/slideshow/EnaFYL-XYAIyxJ5.jpeg" alt="BTS" usemap="#profiles">
+        <map name="profiles">
+            <area onclick=jhope() shape="circle" coords="325, 545, 30" title="j-hope">
+            <area onclick=jk() shape="circle" coords="390, 518, 25" title="Jung Kook">
+            <area onclick=v() shape="circle" coords="440, 505, 20" title="V">
+            <area onclick=jin() shape="circle" coords="513, 500, 25" title="Jin">
+            <area onclick=rm() shape="circle" coords="590, 470, 25" title="RM">
+            <area onclick=suga() shape="circle" coords="640, 495, 25" title="SUGA">
+            <area onclick=jimin() shape="circle" coords="651, 580, 30" title="Jimin">
+        </map>
+        <div id="jhope" class="profile">
+            <h4>j-hope</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>j-hope</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>정호석 (Jung Hoseok)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1994 February 18</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITIONS</td>
+                    <td>Rapper, Dance Leader</td>
+                </tr>
+            </table>
+        </div>
+        <div id="jk" class="profile">
+            <h4>Jung Kook</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>Jung Kook</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>전정국 (Jeon Jungkook)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1997 September 1</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITION</td>
+                    <td>Singer</td>
+                </tr>
+            </table>
+        </div>
+        <div id="v" class="profile">
+            <h4>V</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>김태형 (Kim Taehyung)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1995 December 30</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITION</td>
+                    <td>Singer</td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="jin" class="profile">
+            <h4>Jin</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>Jin</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>김석진 (Kim Seokjin)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1992 December 2</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITION</td>
+                    <td>Singer</td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="rm" class="profile">
+            <h4>RM</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAMES</td>
+                    <td>RM <sub>2017-</sub><br>Rap Monster <sub>2013-2017</sub></td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>김남준 (Kim Namjoon)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1994 September 12</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITIONS</td>
+                    <td>Rapper, Song-Writer</td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="suga" class="profile">
+            <h4>SUGA</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>SUGA</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>민윤기 (Min Yoongi)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1993 March 9</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITIONS</td>
+                    <td>Rapper, Producer</td>
+                </tr>
+            </table>
+
+        </div>
+        <div id="jimin" class="profile">
+            <h4>Jimin</h4>
+            <table>
+                <tr>
+                    <th>STAGE NAME</td>
+                    <td>Jimin</td>
+                </tr>
+                <tr>
+                    <th>REAL NAME</td>
+                    <td>박지민 (Park Jimin)</td>
+                </tr>
+                <tr>
+                    <th>CURRENT AGE</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</td>
+                    <td>1995 October 13</td>
+                </tr>
+                <tr>
+                    <th>MAIN POSITION</td>
+                    <td>Singer</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </section>
+    <section class="s2">
+        <h3>INFORMATION</h3>
+        <p><h6>TIMEZONE</h6>Time and date is in KST (Korea Standard Time)</p>
+        <p><h6>LINKS</h6>Official links are always included where available. Unofficial or alternative links are never included</p>
+        <p><h6>UPDATES</h6>I work on the Timeline when i have time, so it might not always be up-to-date... Sorry about that</p>
+        <p><h6>WORK IN PROGRESS</h6>I'm still doing research to find all the things to put on the timeline, go to this <a href="checklist.html">checklist</a> to see my progress. I don't know if it will ever truly be 'complete' as there seems to be an infinite pool of BTS content. I'm also still making changes to the website itself.</p>
+    </section>
+
+</div>
+    
+<script>
+    function jhope(){
+        const selectedElements = document.querySelectorAll(".profile");
+        
+        selectedElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+
+        var x = document.getElementById("jhope");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+
+    function jk(){
+        const selectedElements = document.querySelectorAll(".profile");
+        
+        selectedElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        var x = document.getElementById("jk");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+
+    function v(){
+        const selectedElements = document.querySelectorAll(".profile");
+        
+        selectedElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        var x = document.getElementById("v");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+
+function jin(){
+    const selectedElements = document.querySelectorAll(".profile");
+    
+    selectedElements.forEach((element) => {
+        element.style.display = "none";
+    });
+
+    var x = document.getElementById("jin");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+}
+
+function rm(){
+    const selectedElements = document.querySelectorAll(".profile");
+    
+    selectedElements.forEach((element) => {
+        element.style.display = "none";
+    });
+
+    var x = document.getElementById("rm");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+}
+
+function suga(){
+    const selectedElements = document.querySelectorAll(".profile");
+    
+    selectedElements.forEach((element) => {
+        element.style.display = "none";
+    });
+
+    var x = document.getElementById("suga");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+}
+
+function jimin(){
+    const selectedElements = document.querySelectorAll(".profile");
+    
+    selectedElements.forEach((element) => {
+        element.style.display = "none";
+    });
+
+    var x = document.getElementById("jimin");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+}
+
+
+</script>
+</body>
+</html>

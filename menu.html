@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Timeline</title>
+    <base target="_parent">
+    <style>
+        *{
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            transition-property: all;
+            transition-duration: 0.2s;
+            color: #8d70a6;
+
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            cursor: default;
+        }
+       
+
+        h1{
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            text-align: center;
+            height: 70px;
+            width: 100%;
+            align-content: center;
+
+        }
+
+        h1 a{
+            color: white;
+            text-decoration: none;
+            background-color: #a98dc1;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            padding-left: 24px;
+            height: 90%;
+            width: 90%;
+            border-radius: 10px;
+            align-content: center;
+            text-align: center;
+        }
+
+
+
+        .container{
+            background-color: #eee3f8d1;
+            backdrop-filter: blur(10px);
+            height: calc(100vh - 140px);
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+
+
+        ul{
+            padding-bottom: 6px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        li{
+            list-style-type: none;
+            width: calc( 100% + 60px);
+            /* width: 100%; */
+            transform: translateX(-3px);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        ul li ul li ul{
+            display: none;
+        }
+        #years, #categories{
+            display: block;
+            height: fit-content;
+        }
+
+        
+        ul h4{
+            padding-left: 35px;
+            font-weight: 900;
+            padding-top: 5px;
+            /*background-color: #8d70a635;*/
+            /*background-image: linear-gradient(to bottom, #8d70a635, #dccce800);*/
+        }
+
+        ul li ul b{
+            margin-left: 65px;
+        }
+        ul li ul a{
+            padding-left: 65px;
+        }
+
+        ul li ul li ul b{
+            margin-left: 87.5px;
+        }
+        ul li ul li ul a{
+            padding-left: 87.5px;
+        }
+
+        ul li ul li ul li ul b{
+            margin-left: 105px;
+            font-style: italic;
+        }
+        ul li ul li ul li ul a{
+            padding-left: 115px;
+        }
+
+        li ul li ul li ul li{
+            font-style: italic;
+            font-weight: 400;
+        }
+
+
+
+        h3{
+            background-color: #8d70a6;
+            color: white;
+            padding: 4px 12px;
+
+            cursor: pointer;
+        }
+        b img{
+            height: 15px;
+            width: 15px;
+            transform: rotate(0deg);
+        }
+
+/*
+        ul li ul b{
+            font-weight: 700;
+        }*/
+
+        b,h4{
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 3px 0;
+        }
+
+
+
+        li img{
+            height: 15px;
+            width: auto;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        li a:hover img{
+            filter: drop-shadow(0 0 6px #ffffff6d);
+        }
+        li a{
+            text-decoration: none;
+            /* border-radius: 9px 0 0 9px; */
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* padding: 3px 6px; */
+            padding: 3px 0;
+
+        }
+
+        li a:hover{
+            text-decoration: none;
+            color: white;
+            background-color: #bfabcd;
+            text-shadow: 0 0 6px #ffffff6d;
+
+            transform: translateX(3px);
+        }
+
+        li a::after{
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-image: url(images/arrow_forward_ios_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-3px);
+            transition-property: all;
+            transition-duration: 0.3s;
+            filter: brightness(0.5)
+        }
+        li a:hover::after{
+            visibility: visible;
+            transform: translateX(4px);
+            opacity: 1;
+            filter: brightness(1) drop-shadow(0 0 6px #ffffff6d);
+
+        }
+
+
+
+        li i{
+            font-size: 12px;
+        }
+
+
+        .dd{
+            transition-duration: 0.2s;
+            rotate: -90deg;
+            height: 17px;
+            border-radius: 100%;
+            background-color: #8e72a780;
+            background-color: transparent;
+            position: absolute;
+            left: -20px;
+        }
+        #dd-years,#dd-categories{
+            rotate: 0deg;
+            left: 12.5px;
+        }
+
+        li b:hover .dd, li h4:hover .dd{
+            background-color: #8d70a6;
+            background-color: transparent;
+        }
+
+
+
+        #filmography:target, #events:target, #socialmedia:target, #series:target, #documentaries:target{
+            display: block;
+        }
+
+        #filmography:target li b .dd, #events:target .dd, #socialmedia:target b .dd, #series:target .dd, #documentaries:target .dd{
+            rotate: 0deg;
+            background-color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1><a href="index.html">BTS TIMELINE</a></h1>
+        <ul>
+
+            <li><h4 onclick=years()><img class="dd" id="dd-years" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">YEARS</h4>
+                <ul id="years">
+                    <li><a href="years/2025.html">2025</a></li>
+                    <li><a href="years/2024.html">2024</a></li>
+                    <li><a href="years/2023.html">2023</a></li>
+                    <li><a href="years/2022.html">2022</a></li>
+                    <li><a href="years/2021.html">2021</a></li>
+                    <li><a href="years/2020.html">2020</a></li>
+                    <li><a href="years/2019.html">2019</a></li>
+                    <li><a href="years/2018.html">2018</a></li>
+                    <li><a href="years/2017.html">2017</a></li>
+                    <li><a href="years/2016.html">2016</a></li>
+                    <li><a href="years/2015.html">2015</a></li>
+                    <li><a href="years/2014.html">2014</a></li>
+                    <li><a href="years/2013.html">2013</a></li>
+                    <li><a href="years/2012.html">2012</a></li>
+                </ul>
+            </li>
+
+            <li><h4 onclick=categories()><img class="dd" id="dd-categories" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">CATEGORIES</h4>
+                <ul id="categories">
+                    <li><a href="categories/discography.html">DISCOGRAPHY<img src="images/icons/music.png"></a></li>
+                    <li><b onclick=filmography()><img class="dd" id="dd-filmography" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">FILMOGRAPHY<img src="images/icons/tv.png"></b>
+                        <ul id="filmography">
+                            <li onclick=series()><b><img class="dd" id="dd-series" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">SERIES</b>
+                                <ul id="series">
+                                    <li><a href="categories/series/runbts.html">Run BTS!</a></li>
+                                    <li><a>Run Jin</a></li>
+                                    <li><a>Bon Voyage</a></li>
+                                    <li><a>In The Soop</a></li>
+                                    <li><a>Are You Sure?!</a></li>
+                                    <li><a>BTS EPISODE</a></li>
+                                    <li><a>BANGTAN BOMB</a></li>
+                                    <li><a>BANGTAN LOG</a></li>
+                                    <li><a>BTS GAYO</a></li>
+                                    <li><a>BOKBULBOK</a></li>
+                                    <li><a>ROOKIE KING: CHANNEL BANGTAN</a></li>
+                                    <li><a>AMERICAN HUSTLE LIFE</a></li>
+                                    <li><a>EAT JIN / 밥 먹는 김석진</a></li>
+                                    <li><a>SUCHWITA / 슈취타</a></li>
+                                    <li><a>취중JIN담</a></li>
+                                    <li><a>교환앨범 MMM (Mini & Moni Music)</a></li>
+                                    <li><a>G.C.F (GOLDEN CLOSET FILM)</a></li>
+                                    <li><a>hope on the street</a></li>
+                                    <li><a>Memories</a></li>
+                                    <li><a>Season's Greetings</a></li>
+                                    <li><a>NOW</a></li>
+                                    <li><a>Summer/Winter Packages</a></li>
+                                    <li><a>BTS 꿀 FM 06.13</a></li>
+                                    <li><a>HYBE T&D STORIES</a></li>
+                                    <li><a>HWARANG (K-DRAMA)</a></li>
+                                </ul>
+                            </li>
+                            <li onclick=documentaries()><b><img class="dd" id="dd-documentaries" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">DOCUMENTARIES</b>
+                                <ul id="documentaries">
+                                    <b>BTS</b>
+                                    <li><a>BURN THE STAGE</a></li>
+                                    <li><a>BRING THE SOUL</a></li>
+                                    <li><a>BREAK THE SILENCE</a></li>
+                                    <li><a>BTS MONUMENTS: BEYOND THE STAR</a></li>
+                                    <b>SOLO</b>
+                                    <li><a>Right ...</a></li>
+                                    <li><a>SUGA</a></li>
+                                    <li><a>j-hope in the box</a></li>
+                                    <li><a>HOPE ON THE STREET</a></li>
+                                    <li><a>Jimin's production diary</a></li>
+                                    <li><a>I am still</a></li>
+                                </ul>
+                            </li>
+                            <li><a>MUSIC VIDEOS</a></li>
+                            <li><a>CONCERT RECORDINGS</a></li>
+                            <li><a>GUEST APPEARANCES</a></li>
+                            <li><a>LIVESTREAMS<img src="images/icons/live.png"></a></li>
+                            <li><a>DVD / BLU-RAY / DIGITAL CODE<img src="images/icons/dvd.png"></a></li>
+                        </ul>
+                    </li>
+                    <li><b onclick=events()><img class="dd" id="dd-events" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">EVENTS<img src="images/icons/ticket.png"></b>
+                        <ul id="events">
+                            <li><a>CONCERTS</a></li>
+                            <li><a>MUSTERS</a></li>
+                            <li><a>FANMEETINGS</a></li>
+                        </ul>
+                    </li>
+                    <li><b onclick=socialmedia()><img class="dd" id="dd-socialmedia" src="images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 (1).svg">SOCIAL MEDIA</b>
+                        <ul id="socialmedia">
+                            <li><i><a href="categories/socialmedia/listofaccounts.html">LIST OF ACCOUNTS</a></i></li>
+                            <li><a><img src="images/icons/social-media/weverse.svg">WEVERSE + VLIVE</a></li>
+                            <li><a><img src="images/icons/social-media/youtube.png">YOUTUBE</a></li>
+                            <li><a><img src="images/icons/social-media/twitter.png">TWITTER / X</a></li>
+                            <li><a><img src="images/icons/social-media/instagram.svg">INSTAGRAM</a></li>
+                            <li><a><img src="images/icons/social-media/facebook.png">FACEBOOK</a></li>
+                            <li><a><img src="images/icons/social-media/tiktok.png">TIKTOK</a></li>
+                            <li><a><img src="images/icons/social-media/soundcloud2.png">SOUNDCLOUD</a></li>
+                            <li><a><img src="images/icons/social-media/stationhead.jpg">STATIONHEAD</a></li>
+                            <li><a><img src="images/icons/social-media/daumcafe.svg">FANCAFE</a></li>
+                            <li><a><img src="images/icons/social-media/tistory.png">BANGTANBLOG</a></li>
+                            <li><a><img src="images/icons/social-media/japanfanclub.png">JAPAN FANCLUB</a></li>
+                            <li><a><img src="images/icons/social-media/naverblog.png">NAVER BLOG</a></li>
+                            <li><a><img src="images/icons/social-media/weibo.svg">WEIBO</a></li>
+                        </ul>
+                    </li>
+                    <li><a>BANGTAN UNIVERSE (BU)</a></li>
+                    <li><a>BOOKS<img src="images/icons/book.png"></a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+
+    function years(){
+        var x = document.getElementById("dd-years");
+            if (x.style.rotate === "-90deg") {
+                x.style.rotate = "0deg";
+            } else {
+                x.style.rotate = "-90deg";
+            }
+        
+        var x = document.getElementById("years");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+    }
+    function categories(){
+        var x = document.getElementById("dd-categories");
+            if (x.style.rotate === "-90deg") {
+                x.style.rotate = "0deg";
+            } else {
+                x.style.rotate = "-90deg";
+            }
+        
+        var x = document.getElementById("categories");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+    }
+
+
+    function filmography(){
+        var x = document.getElementById("dd-filmography");
+            if (x.style.rotate === "0deg") {
+                x.style.rotate = "-90deg";
+            } else {
+                x.style.rotate = "0deg";
+            }
+
+
+        var x = document.getElementById("filmography");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+    function events(){
+        var x = document.getElementById("dd-events");
+            if (x.style.rotate === "0deg") {
+                x.style.rotate = "-90deg";
+            } else {
+                x.style.rotate = "0deg";
+            }
+
+        var x = document.getElementById("events");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+    function socialmedia(){
+        var x = document.getElementById("dd-socialmedia");
+            if (x.style.rotate === "0deg") {
+                x.style.rotate = "-90deg";
+            } else {
+                x.style.rotate = "0deg";
+            }
+
+        var x = document.getElementById("socialmedia");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+
+
+    function series(){
+        var x = document.getElementById("dd-series");
+            if (x.style.rotate === "0deg") {
+                x.style.rotate = "-90deg";
+            } else {
+                x.style.rotate = "0deg";
+            }
+
+        var x = document.getElementById("series");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+    function documentaries(){
+        var x = document.getElementById("dd-documentaries");
+            if (x.style.rotate === "0deg") {
+                x.style.rotate = "-90deg";
+            } else {
+                x.style.rotate = "0deg";
+            }
+
+        var x = document.getElementById("documentaries");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+    }
+
+
+    </script>
+</body>
+</html>
